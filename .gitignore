@@ -4,5 +4,4 @@ bower_components/
 .idea/
 .tmp/
 true!ng-annotate/
-dist/
 .DS_Store
