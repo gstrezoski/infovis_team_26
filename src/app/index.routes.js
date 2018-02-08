@@ -8,15 +8,15 @@ function routeConfig($urlRouterProvider, $stateProvider, resolverProvider) {
   'ngInject';
 
 
-    $stateProvider
-        .state('async', {
-          url: '/async',
-          templateUrl: asyncTemplate,
-          controller: 'asyncController',
-          resolve: {
-            asyncPreloading: resolverProvider.asyncPagePrealoading
-          }
-        });
+  $stateProvider
+    .state('async', {
+      url: '/async',
+      templateUrl: asyncTemplate,
+      controller: 'asyncController',
+      resolve: {
+        asyncPreloading: resolverProvider.asyncPagePrealoading,
+      },
+    });
 
 
   $urlRouterProvider.otherwise('/');
@@ -25,5 +25,5 @@ function routeConfig($urlRouterProvider, $stateProvider, resolverProvider) {
 
 export default angular
   .module('index.routes', [])
-    .config(routeConfig);
+  .config(routeConfig);
 

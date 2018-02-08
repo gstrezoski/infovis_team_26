@@ -2,16 +2,16 @@
 'use strict';
 
 function config($logProvider, $compileProvider) {
-	'ngInject';
+  'ngInject';
 
-    $logProvider.debugEnabled(true);
+  $logProvider.debugEnabled(true);
 
-    if (NODE_ENV === 'production') {
-        $logProvider.debugEnabled(false);
-        $compileProvider.debugInfoEnabled(false);
-    }
+  if (NODE_ENV === 'production') {
+    $logProvider.debugEnabled(false);
+    $compileProvider.debugInfoEnabled(false);
+  }
 
-  
+
 }
 
 export default config;

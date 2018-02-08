@@ -12,17 +12,17 @@ import mainModule from './pages/main/main.module';
 
 
 const App = angular.module(
-  "main-project", [
+  'main-project', [
     // plugins
     uiRouter,
-    "ngAnimate", 
-	"ngCookies", 
-	"ngTouch", 
-	"ngSanitize", 
-	"ngMessages", 
-	"ngAria", 
-	"ngResource", 
-	"oc.lazyLoad",
+    'ngAnimate',
+    'ngCookies',
+    'ngTouch',
+    'ngSanitize',
+    'ngMessages',
+    'ngAria',
+    'ngResource',
+    'oc.lazyLoad',
 
     // core
     coreModule.name,
@@ -34,7 +34,7 @@ const App = angular.module(
     indexRoutes.name,
 
     // pages
-    mainModule.name
+    mainModule.name,
 
   ]
 );
