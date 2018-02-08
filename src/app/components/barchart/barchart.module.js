@@ -1,8 +1,9 @@
 'use strict';
 
 import BarchartComponent from './barchart.component';
+import './barchart.scss';
 
-const barchartModule = angular.module('footer-module', []);
+const barchartModule = angular.module('barchart-module', []);
 
 barchartModule
   .component('barChart', new BarchartComponent());
