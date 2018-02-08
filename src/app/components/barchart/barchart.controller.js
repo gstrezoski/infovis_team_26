@@ -21,7 +21,7 @@ export default class BarchartController {
     const g = svg.append('g')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-    d3.tsv('data/barchart-data.tsv', (d) => {
+    d3.tsv('assets/data/barchart-data.tsv', (d) => {
       d.frequency = +d.frequency;
       return d;
     }, (error, data) => {
