@@ -24,7 +24,6 @@ export default class BarchartController {
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
     d3.tsv(barchart_data, (d) => {
-      // console.log(d);
       d.frequency = +d.frequency;
       return d;
     }, (error, data) => {
