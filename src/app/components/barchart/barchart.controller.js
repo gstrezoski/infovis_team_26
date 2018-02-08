@@ -2,6 +2,8 @@
 
 import * as d3 from 'd3';
 
+import barchart_data from '_data/barchart-data.tsv';
+
 export default class BarchartController {
   constructor() {
     'ngInject';
