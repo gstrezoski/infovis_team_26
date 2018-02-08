@@ -5,6 +5,8 @@
     },
     "extends": "eslint:recommended",
     "rules": {
+        "no-console": "off",
+        "no-unused-vars": "warn",
         "eqeqeq": "warn",
         "no-fallthrough": "off",
         "no-shadow": "warn",

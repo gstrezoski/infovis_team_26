@@ -131,11 +131,17 @@ module.exports = function (_path) {
       }, {
         test: /\.(csv|tsv)$/i,
         use: [
-          {
+          /*{
             loader: 'csv-loader',
             options: {
               header: true,
               dynamicTyping: true,
+            }
+          }*/
+          {
+            loader: 'file-loader',
+            options: {
+              name: "assets/data/[name].[ext]"
             }
           }
         ]
