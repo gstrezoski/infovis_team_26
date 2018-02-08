@@ -13,6 +13,7 @@ export default function(app) {
     'ngInject';
 
     const deferred = $q.defer();
+
     require.ensure([], (require) => {
       const asyncModule = require('../../pages/async-page-example/async.module');
       $ocLazyLoad.load({

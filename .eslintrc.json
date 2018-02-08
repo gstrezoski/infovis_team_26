@@ -14,7 +14,6 @@
         "indent": ["error", 2],
         "comma-dangle": ["error", "always-multiline"],
         "block-spacing": ["error", "always"],
-        "no-trailing-spaces": "error",
         "object-curly-spacing": ["error", "always"],
         "no-new-object": "error",
         "no-array-constructor": "error",
