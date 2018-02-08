@@ -3,19 +3,19 @@
 import MainComponent from './main.component';
 
 const mainPageModule = angular.module('main-module', [
-    'ui.router'
+  'ui.router',
 ])
-    .config(($stateProvider, $urlRouterProvider) => {
-        'ngInject';
+  .config(($stateProvider, $urlRouterProvider) => {
+    'ngInject';
 
-        $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/');
 
-        $stateProvider
-            .state('main', {
-                url: '/',
-                component: 'main'
-            });
-    })
-    .component('main', new MainComponent());
+    $stateProvider
+      .state('main', {
+        url: '/',
+        component: 'main',
+      });
+  })
+  .component('main', new MainComponent());
 
 export default mainPageModule;

@@ -65,7 +65,10 @@ module.exports = function (_path) {
         enforce: 'pre',
         use: [
           {
-            loader: 'eslint-loader'
+            loader: 'eslint-loader',
+            options: {
+                fix: false
+            }
           }
         ]
       }, {
@@ -137,17 +140,17 @@ module.exports = function (_path) {
         }
       }),
        new webpack.ProvidePlugin({
-           
+
            $: 'jquery',
            jQuery: 'jquery',
            'window.jQuery': 'jquery',
            'window.jquery': 'jquery',
-           
-           
+
+
            moment: 'moment',
            'window.moment': 'moment',
-           
-           
+
+
        }),
       new webpack.DefinePlugin({
         'NODE_ENV': JSON.stringify(NODE_ENV)

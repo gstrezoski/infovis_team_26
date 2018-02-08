@@ -1,30 +1,30 @@
 'use strict';
 
 // node_modules
-import "angular";
+import 'angular';
 
-import "@uirouter/angularjs";
+import '@uirouter/angularjs';
 
 
-import "angular-resource";
+import 'angular-resource';
 
-import "oclazyload";
+import 'oclazyload';
 
-import "angular-animate";
+import 'angular-animate';
 
-import "angular-cookies";
+import 'angular-cookies';
 
-import "angular-touch";
+import 'angular-touch';
 
-import "angular-sanitize";
+import 'angular-sanitize';
 
-import "angular-messages";
+import 'angular-messages';
 
-import "angular-aria";
+import 'angular-aria';
 
-import "jquery";
+import 'jquery';
 
-import "angular-resource";
+import 'angular-resource';
 
 
 
