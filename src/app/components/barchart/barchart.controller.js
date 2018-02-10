@@ -34,7 +34,7 @@ export default class BarchartController {
     svg.selectAll('g').remove();
 
     const g = svg.append('g')
-      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+      .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
     d3.tsv(barchart_data, (d) => {
       d.frequency = +d.frequency;
@@ -47,7 +47,7 @@ export default class BarchartController {
 
       g.append('g')
         .attr('class', 'axis axis--x')
-        .attr('transform', 'translate(0,' + height + ')')
+        .attr('transform', `translate(0, ${height})`)
         .call(d3.axisBottom(x));
 
       g.append('g')
