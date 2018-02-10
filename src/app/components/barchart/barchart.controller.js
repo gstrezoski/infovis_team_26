@@ -12,8 +12,8 @@ export default class BarchartController {
 
   $postLink() {
     // Wrap in a timeout to only load when the DOM has rendered
-    // 100ms is crude, but short enough to have the svg size calculated correctly.
-    this.$timeout(this.render, 100);
+    // 200ms is crude, but short enough to have the svg size calculated correctly.
+    this.$timeout(this.render, 200);
 
     // Add a listener to resize events of the window (then we should redraw)
     window.addEventListener('resize', this.render);
