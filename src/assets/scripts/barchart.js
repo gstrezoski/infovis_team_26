@@ -1,30 +1,29 @@
-'use strict';
-
 import * as d3 from 'd3';
 
-import barchart_data from '_data/barchart-data.tsv';
+export default class BarChart {
 
-export default class BarchartController {
-  constructor($timeout) {
-    'ngInject';
-    this.$timeout = $timeout;
-  }
+  // Accept external data to make it reusable
+  constructor(data) {
+    this.data = data;
+    this.render();
 
-  $postLink() {
-    // Wrap in a timeout to only load when the DOM has rendered
-    // 200ms is crude, but short enough to have the svg size calculated correctly.
-    this.$timeout(this.render, 200);
-
-    // Add a listener to resize events of the window (then we should redraw)
     window.addEventListener('resize', this.render);
   }
 
   render() {
     const svg = d3.select('svg.bar-chart'),
       margin = { top: 20, right: 20, bottom: 30, left: 40 },
-      box = svg.node().getBoundingClientRect(),
-      width = box['width'] - margin.left - margin.right,
+      box = svg.node().getBoundingClientRect();
+    
+    let width, height;
+    // Maybe the DOM hasn't loaded correctly. Then the graph will be the wrong size
+    if (box.height === 150 && box.width === 300) {
+      width = (window.innerWidth / 2) - box['left'] - margin.left - margin.right;
+      height = (window.innerHeight / 2) - box['top'] - margin.top - margin.bottom;
+    } else {
+      width = box['width'] - margin.left - margin.right;
       height = box['height'] - margin.top - margin.bottom;
+    }
 
     const x = d3.scaleBand().rangeRound([0, width])
         .padding(0.1),
@@ -36,7 +35,7 @@ export default class BarchartController {
     const g = svg.append('g')
       .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
-    d3.tsv(barchart_data, (d) => {
+    d3.tsv(this.data, (d) => {
       d.frequency = +d.frequency;
       return d;
     }, (error, data) => {
