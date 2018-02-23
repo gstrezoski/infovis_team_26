@@ -6,14 +6,10 @@
     <title>Our awesome D3.js project</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
     <% for(var i=0; i < htmlWebpackPlugin.files.css; i++) { %>
         <link href="<%= htmlWebpackPlugin.files.css[i] %>" rel="stylesheet">
         <% } %>
-
-            <% for(var i=0; i < htmlWebpackPlugin.files.chunks; i++) { %>
-                <script src="<%= htmlWebpackPlugin.files.chunks[i].entry %>" defer></script>
-                <% } %>
 </head>
 
 <body>
@@ -21,8 +17,27 @@
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div ui-view></div>
+    <div class="full-screen">
+      <div class="top-bar">
+        <h2>Click or hover over any element to see the interactions in other elements.</h2>
+      </div>
+      <div class="quarter">
+        <svg class="bar-chart"></svg>
+      </div>
+      <div class="quarter">
+        <h1>Quarter 2</h1>
+      </div>
+      <div class="quarter">
+        <h1>Quarter 3</h1>
+      </div>
+      <div class="quarter">
+        <h1>Quarter 4</h1>
+      </div>
+    </div>
 
+    <% for(var i=0; i < htmlWebpackPlugin.files.chunks; i++) { %>
+      <script src="<%= htmlWebpackPlugin.files.chunks[i].entry %>" defer></script>
+      <% } %>
 </body>
 
 </html>
