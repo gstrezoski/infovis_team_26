@@ -18,7 +18,7 @@ module.exports = function (_path) {
   var webpackConfig = {
     // entry points
     entry: {
-      app: _path + '/src/app/index.bootstrap.js'
+      app: _path + '/src/index.js'
     },
 
     // output system
@@ -32,11 +32,10 @@ module.exports = function (_path) {
     resolve: {
       extensions: ['.js', '.es6', '.jsx', '.scss', '.css'],
       alias: {
-        _appRoot: path.join(_path, 'src', 'app'),
         _data: path.join(_path, 'src', 'assets', 'data'),
         _images: path.join(_path, 'src', 'assets', 'images'),
         _stylesheets: path.join(_path, 'src', 'assets', 'styles'),
-        _scripts: path.join(_path, 'src', 'assets', 'js')
+        _scripts: path.join(_path, 'src', 'assets', 'scripts')
       }
     },
 
@@ -45,12 +44,6 @@ module.exports = function (_path) {
       rules: [{
         test: /\.html$/,
         use: [
-            {
-              loader: 'ngtemplate-loader',
-              options: {
-                relativeTo: path.join(_path, '/src')
-              }
-            },
             {
               loader: 'html-loader',
               options: {
@@ -68,7 +61,7 @@ module.exports = function (_path) {
           {
             loader: 'eslint-loader',
             options: {
-                fix: false
+                fix: true
             }
           }
         ]
@@ -84,9 +77,6 @@ module.exports = function (_path) {
               cacheDirectory: false
             }
           },
-          {
-            loader: 'baggage-loader?[file].html&[file].css'
-          }
         ]
       }, {
         test: /\.css$/,
@@ -103,10 +93,7 @@ module.exports = function (_path) {
         ]
       }, {
         test: /\.(scss|sass)$/,
-        loader: DEVELOPMENT ? ('style-loader!' + stylesLoader) : ExtractTextPlugin.extract({
-          fallbackLoader: "style-loader",
-          loader: stylesLoader
-        })
+        loader: 'style-loader!' + stylesLoader
       }, {
         test: /\.(woff2|woff|ttf|eot|svg)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         use: [
@@ -131,13 +118,6 @@ module.exports = function (_path) {
       }, {
         test: /\.(csv|tsv)$/i,
         use: [
-          /*{
-            loader: 'csv-loader',
-            options: {
-              header: true,
-              dynamicTyping: true,
-            }
-          }*/
           {
             loader: 'file-loader',
             options: {
@@ -194,7 +174,7 @@ module.exports = function (_path) {
       }),
       new HtmlWebpackPlugin({
         filename: 'index.html',
-        template: path.join(_path, 'src', 'tpl-index.ejs')
+        template: path.join(_path, 'src', 'index.ejs')
       })
     ]
   };
