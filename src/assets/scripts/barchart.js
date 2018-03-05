@@ -7,14 +7,14 @@ export default class BarChart {
     this.data = data;
     this.render();
 
-    window.addEventListener('resize', this.render);
+    // window.addEventListener('resize', this.render);
   }
 
   render() {
     const svg = d3.select('svg.bar-chart'),
       margin = { top: 20, right: 20, bottom: 30, left: 40 },
       box = svg.node().getBoundingClientRect();
-    
+
     let width, height;
     // Maybe the DOM hasn't loaded correctly. Then the graph will be the wrong size
     if (box.height === 150 && box.width === 300) {
