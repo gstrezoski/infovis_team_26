@@ -18,20 +18,34 @@
     <![endif]-->
 
     <div class="full-screen">
-      <div class="top-bar">
-        <h2>Click or hover over any element to see the interactions in other elements.</h2>
+      <div class="main">
+        <svg class="tree">
+          <defs>
+            <radialGradient id="Mgradient" cx="25%" cy="25%" r="50%" fx="50%" fy="50%">
+              <stop offset="10%" stop-color="lightblue" />
+              <stop offset="95%" stop-color="blue" />
+            </radialGradient>
+            <radialGradient id="Fgradient" cx="25%" cy="25%" r="50%" fx="50%" fy="50%">
+              <stop offset="10%" stop-color="pink" />
+              <stop offset="95%" stop-color="red" />
+            </radialGradient>
+            <radialGradient id="Ugradient" cx="25%" cy="25%" r="50%" fx="50%" fy="50%">
+              <stop offset="10%" stop-color="lightgrey" />
+              <stop offset="95%" stop-color="grey" />
+            </radialGradient>
+          </defs>
+        </svg>
       </div>
-      <div class="quarter">
-        <svg class="bar-chart"></svg>
-      </div>
-      <div class="quarter">
-        <h1>Quarter 2</h1>
-      </div>
-      <div class="quarter">
-        <h1>Quarter 3</h1>
-      </div>
-      <div class="quarter">
-        <h1>Quarter 4</h1>
+      <div class="sidebar">
+        <div class="quadrant">
+          <svg class="bar-chart"></svg>
+        </div>
+        <div class="quadrant">
+          <svg class="bar-chart"></svg>
+        </div>
+        <div class="quadrant">
+          <svg class="bar-chart"></svg>
+        </div>
       </div>
     </div>
 
