@@ -1,0 +1,40 @@
+svg.tree {
+  width: 100%;
+  height: 100%;
+
+  .treelayer {
+    transform: translate(50%, 50%);
+
+    .node circle {
+      &.M {
+        fill: url('#Mgradient');
+        // fill: radial-gradient(circle at 100px 100px, lightblue, #000);
+      }
+
+      &.F {
+        // fill: radial-gradient(circle at 100px 100px, pink, #000);
+        fill: url('#Fgradient');
+      }
+
+      &.U {
+        // fill: radial-gradient(circle at 100px 100px, black, #000);
+        fill: url('#Ugradient');
+      }
+    }
+
+    .node-internal circle {
+      opacity: 0.4;
+    }
+
+    .node-leaf circle {
+      opacity: 0.3;
+    }
+
+    .link {
+      fill: none;
+      stroke: #999;
+      stroke-opacity: 0.2;
+      stroke-width: 1.5px;
+    }
+  }
+}
