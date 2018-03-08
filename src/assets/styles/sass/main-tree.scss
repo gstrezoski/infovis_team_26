@@ -37,4 +37,12 @@ svg.tree {
       stroke-width: 1.5px;
     }
   }
+
+  .hulllayer {
+    transform: translate(50%, 50%);
+    .hull {
+      fill-opacity: 0.2;
+      stroke-width: 2px;
+    }
+  }
 }
