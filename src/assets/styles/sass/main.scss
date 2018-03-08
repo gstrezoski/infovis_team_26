@@ -5,6 +5,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 // Import stylesheets
 @import './barchart.scss';
 @import './main-tree.scss';
+@import './controls.scss';
 
 html { height: 100%; }
 body {

@@ -1,6 +1,6 @@
 svg.tree {
   width: 100%;
-  height: 100%;
+  height: 80%;
 
   .treelayer {
     transform: translate(50%, 50%);
@@ -44,5 +44,9 @@ svg.tree {
       fill-opacity: 0.2;
       stroke-width: 2px;
     }
+  }
+
+  .uilayer .legend.right {
+    text-anchor: end;
   }
 }
