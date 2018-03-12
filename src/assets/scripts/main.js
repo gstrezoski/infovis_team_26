@@ -1,6 +1,7 @@
 // Import dependent classes
 // import BarChart from '_scripts/barchart.js';
 import TreeChart from '_scripts/tree.js';
+import BarChart from '_scripts/barchart.js';
 import Controls from '_scripts/controls.js';
 
 // Import data
