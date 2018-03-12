@@ -26,7 +26,7 @@ window.ranges = {
 // Initialize classes and assign their instances to variables.
 // This way, we can make them interact.
 const ctrl = new Controls(defaultVars);
-
+const line = new LineChart().load(line_chart_location_data);
 const tree = new TreeChart(defaultVars).load(core_2015_01);
 
 const registerEvents = () => {
