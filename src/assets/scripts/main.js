@@ -1,15 +1,11 @@
 // Import dependent classes
 // import BarChart from '_scripts/barchart.js';
 import TreeChart from '_scripts/tree.js';
-import BarChart from '_scripts/barchart.js';
+import LineChart from '_scripts/linechart.js';
 import Controls from '_scripts/controls.js';
 import setup_helper from '_scripts/helper.js';
 
 // Import data
-import LineChart from '_scripts/linechart.js';
-
-// Import data
-import barchart_data from '_data/barchart-data.tsv';
 import line_chart_location_data from '_data/line_chart_location.csv';
 import core_2015_01 from '_data/core_2015-01.csv';
 
