@@ -6,6 +6,8 @@ svg.tree {
     transform: translate(50%, 50%);
 
     .node circle {
+      pointer-events: none;
+
       &.M {
         fill: url('#Mgradient');
         // fill: radial-gradient(circle at 100px 100px, lightblue, #000);
@@ -33,20 +35,33 @@ svg.tree {
     .link {
       fill: none;
       stroke: #999;
-      stroke-opacity: 0.2;
+      stroke-opacity: 0.1;
       stroke-width: 1.5px;
+      pointer-events: none;
     }
   }
 
   .hulllayer {
     transform: translate(50%, 50%);
     .hull {
+      transition: linear 200ms all;
       fill-opacity: 0.2;
-      stroke-width: 2px;
+
+      &.hover {
+        fill-opacity: 0.7;
+      }
     }
   }
 
-  .uilayer .legend.right {
-    text-anchor: end;
+  .uilayer .legend {
+    transition: linear 200ms all;
+
+    &.hover {
+      font-weight: 600;
+    }
+
+    &.right {
+      text-anchor: end;
+    }
   }
 }
