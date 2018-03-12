@@ -10,47 +10,32 @@
     <% for(var i=0; i < htmlWebpackPlugin.files.css; i++) { %>
       <link href="<%= htmlWebpackPlugin.files.css[i] %>" rel="stylesheet">
     <% } %>
-    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+
     <style>
-    .float{
-    	position:fixed;
-    	width:60px;
-    	height:60px;
-    	top:20px;
-    	right:20px;
-    	background-color:#0C9;
-    	color:#FFF;
-    	border-radius:50px;
-    	text-align:center;
-      cursor: pointer;
-      z-index: 2000;
-    }
+      /* stylesheet are downloaded asynchronously, so we should hide all
+         helper elements when browser starts rendering */
+      .helper-text {
+        display: none;
+      }
 
-    .my-float{
-    	margin-top:18px;
-    }
-
-    .helper-text{
-      opacity: 0;
-      width: 80%;
-      z-index: 1000;
-    }
+      .helper-container {
+        display: none;
+      }
     </style>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
     <!--[if lt IE 10]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <a class="float">
-      <i id="helper-icon" class="fa fa-2x fa-question my-float"></i>
+    <a class="helper-container">
+      <i class="helper-icon fa fa-2x fa-question"></i>
     </a>
 
     <div class="full-screen">
       <div class="main">
-        <div class="helper-text panel panel-primary" style=" position: absolute; top: 300px; left:10%;">
+        <div class="helper-text panel panel-primary"
+            style="top: 300px; left:10%;">
           <div class="panel-heading">Tree Graph</div>
           <div class="panel-body">A tree graph is useful to represent hierarchical relationship.
           In order to maximally use the space, we choose a circula tree model.
@@ -75,15 +60,15 @@
             </radialGradient>
           </defs>
         </svg>
-        <div class="controls" style="position: relative;">
 
-          <div class="helper-text panel panel-primary" style=" position: absolute; top: 10px; left:10%;">
+        <div class="controls" style="position: relative;">
+          <div class="helper-text panel panel-primary"
+              style="top: 10px; left:10%;">
             <div class="panel-heading">Filter</div>
             <div class="panel-body">Here you can set different filters for
               Function Areas, Location and Business Units.
             </div>
           </div>
-
           <div class="container groupBy component">
           </div>
           <div class="container groupByLevel component">
@@ -94,7 +79,8 @@
       </div>
       <div class="sidebar">
         <div class="quadrant">
-          <div class="helper-text panel panel-primary" style=" position: absolute; top: 35px; left:10%;">
+          <div class="helper-text panel panel-primary"
+              style="top: 35px; left:10%;">
             <div class="panel-heading">Female salary v.s. male salary</div>
             <div class="panel-body"> By making two boxes per hay grade, we can
                show the difference between male relative position salary and
@@ -106,7 +92,8 @@
           <svg class="line-chart component" id="sg-fmsbox"></svg>
         </div>
         <div class="quadrant">
-          <div class="helper-text panel panel-primary" style=" position: absolute; top: 35px; left:10%;">
+          <div class="helper-text panel panel-primary"
+              style="top: 35px; left:10%;">
             <div class="panel-heading">Gender breakdown of job titles</div>
             <div class="panel-body">The user can see the job distribution among
                males and females at the first glance. The user also can
@@ -116,7 +103,8 @@
           <svg class="bar-chart component" id="sg-gbjt"></svg>
         </div>
         <div class="quadrant">
-          <div class="helper-text panel panel-primary" style=" position: absolute; top: 35px; left:10%;">
+          <div class="helper-text panel panel-primary"
+              style="top: 35px; left:10%;">
             <div class="panel-heading">Percentage of female employees over time</div>
             <div class="panel-body">Linechart is commonly used to represent the
               trend of changes. The user can see how the percentage of female

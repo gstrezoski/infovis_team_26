@@ -1,11 +1,16 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 
-// Import stylesheets
+// Import external stylesheets via urls
+@import url('https://use.fontawesome.com/releases/v5.0.8/css/all.css');
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+
+// Import local stylesheetss
 @import './barchart.scss';
 @import './linechart.scss';
 @import './main-tree.scss';
 @import './controls.scss';
+@import './helper.scss';
 
 html { height: 100%; }
 body {
