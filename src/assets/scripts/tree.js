@@ -1,4 +1,6 @@
 import * as d3 from 'd3';
+import * as d3Chromatic from 'd3-scale-chromatic';
+import * as moment from 'moment';
 import Hull from '_scripts/hull.js';
 
 export default class TreeChart {
@@ -7,8 +9,12 @@ export default class TreeChart {
     this.vars = vars;
     this.svg = d3.select('svg.tree');
 
-    this.treelayer = this.svg.append('g').attr('class', 'treelayer');
+    this.ageColors = d3.scaleSequential()
+      .domain(window.ranges['age'])                   
+      .interpolator(d3Chromatic.interpolateGreys);
+
     this.hulllayer = this.svg.append('g').attr('class', 'hulllayer');
+    this.treelayer = this.svg.append('g').attr('class', 'treelayer');
     this.uilayer = this.svg.append('g').attr('class', 'uilayer');
     this.stratify = d3.stratify().parentId((d) => d.solid_line);
 
@@ -60,6 +66,7 @@ export default class TreeChart {
           solid_line: +d.solid_line || '',
           name: `${d.first_name} ${d.last_name}`,
           gender: d.gender,
+          age: moment().diff(d.date_of_birth, 'years'),
 
           location_level1: d.location_level1,
           location_level2: d.location_level2,
@@ -95,10 +102,13 @@ export default class TreeChart {
     const newNodes = this.nodes.enter().append('g');
     this.nodes = this.nodes.merge(newNodes)
       .attr('class', (d) => d.children ? 'node node-interal' : 'node node-leaf');
+    
+    this.nodes.selectAll('circle').remove();
       
     this.nodes.append('circle')
       .attr('r', (d) => 2 + this.root.height - d.depth)
-      .attr('class', (d) => d.data.gender);
+      .attr('class', (d) => d.data[this.vars.metric])
+      .attr('fill', (d) => this.ageColors(d.data[this.vars.metric]));
 
     this.group();
     this._rendered = true;
@@ -154,12 +164,14 @@ export default class TreeChart {
       });
     });
 
+    this.hullObjs = this.hullObjs.sort((a, b) => a.points.length < b.points.length)
     this.hulls = this.hulllayer.selectAll('.hull').data(this.hullObjs);
     this.hulls.exit().remove();
     const newHulls = this.hulls.enter().append('path')
       .classed('hull', true);
     this.hulls = this.hulls.merge(newHulls).attr('d', (d) => d.d)
-      .attr('fill', (d) => d3.interpolateWarm(this.hullKeys.indexOf(d.id) / this.hullKeys.length));
+      .attr('amount', (d) => d.points.length)
+      .attr('fill', (d) => d3.interpolateRainbow(this.hullKeys.indexOf(d.id) / this.hullKeys.length));
     
     this.drawLegend();
   }
@@ -195,7 +207,7 @@ export default class TreeChart {
       .attr('y', 20)
       .attr('width', 18)
       .attr('height', 18)
-      .style('fill', (d) => d3.interpolateWarm(this.hullKeys.indexOf(d) / this.hullKeys.length));
+      .style('fill', (d, i) => d3.interpolateRainbow(i / this.hullKeys.length));
     
     // Numbers found through trial and error
     this.legend.append('text')
