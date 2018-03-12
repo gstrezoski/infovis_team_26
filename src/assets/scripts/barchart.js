@@ -30,7 +30,26 @@ export default class BarChart {
   }
 
   render() {
+<<<<<<< HEAD
     if(this._loading !== true) return;
+=======
+    const svg = d3.select(`svg#${this.id}`);
+
+    let box = svg.node().getBoundingClientRect();
+    console.log(box.height, box.width);
+
+    if (box.height === 150 && box.width === 300) {
+      // Retry
+      console.log('retry.');
+      setTimeout(() => this.render(), 100);
+      return;
+    }
+
+    console.log('here!');
+
+    svg.attr('width', box.width);
+    svg.attr('height', box.height);
+>>>>>>> d40e2b5... Add new feature: toggleable tooltip (homepage)
 
     const svg = d3.select('svg.bar-chart'),
       margin = { top: 20, right: 20, bottom: 30, left: 40 },
@@ -42,7 +61,8 @@ export default class BarChart {
         .padding(0.1),
       y = d3.scaleLinear().rangeRound([height, 0]);
 
-    let data = [1, 2, 3, 4, 3, 2, 3];
+    let data = [];
+    for (let i=0; i<7; i++) { data.push(Math.floor(Math.random() * 100)); }
 
     let g = svg.append('g')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
