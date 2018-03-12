@@ -1,0 +1,19 @@
+.line-chart {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+    //&.scrollable {
+        fill: lightgoldenrodyellow;
+        //cursor: ew-resize;
+    //}
+}
+
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-width: 1.5;
+}
