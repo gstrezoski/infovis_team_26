@@ -36,16 +36,16 @@ export default class BarChart {
     const svg = d3.select(`svg#${this.id}`);
 
     let box = svg.node().getBoundingClientRect();
-    console.log(box.height, box.width);
+    // console.log(box.height, box.width);
 
     if (box.height === 150 && box.width === 300) {
       // Retry
-      console.log('retry.');
+      // console.log('retry.');
       setTimeout(() => this.render(), 100);
       return;
     }
 
-    console.log('here!');
+    // console.log('here!');
 
     svg.attr('width', box.width);
     svg.attr('height', box.height);
@@ -70,6 +70,7 @@ export default class BarChart {
     x.domain([1, 2, 3, 4, 5, 6, 7]);
     y.domain([0, d3.max(data, function(d) { return d; })]);
 
+<<<<<<< HEAD
     x.domain(this.data.map((d) => d.month));
     y.domain([0, d3.max(data, (d) => d.perc_women)]);
 
@@ -90,6 +91,13 @@ export default class BarChart {
 
     g.selectAll('.bar')
       .data(this.data)
+=======
+    // console.log('height is ' + height);
+    //for (let i=0; i<data.length; i++) { console.log(y(data[i])); }
+
+    g.selectAll('rect')
+      .data(data)
+>>>>>>> 6cee4c6... Add opacity transition animation for tooltip
       .enter()
       .append('rect')
       .attr('class', 'bar')
