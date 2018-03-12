@@ -5,11 +5,13 @@ export default class Controls {
     this.active = vars
     this.groupByValues = ['functional_area', 'location', 'business_unit'];
     this.groupByLevels = [1, 2, 3];
+    this.metricValues = ['gender', 'age'];
     this.div = d3.select('div.controls');
     this.controls = {};
 
     this.renderToggle('groupBy', this.groupByValues);
     this.renderToggle('groupByLevel', this.groupByLevels);
+    this.renderToggle('metric', this.metricValues);
   }
 
   renderToggle(cls, data) {
