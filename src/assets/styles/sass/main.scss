@@ -4,6 +4,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 // Import stylesheets
 @import './barchart.scss';
+@import './linechart.scss';
 @import './main-tree.scss';
 @import './controls.scss';
 
@@ -23,12 +24,12 @@ body {
   }
 
   .sidebar {
-    flex: 0 0 calc(100vw - 100vh);
+    flex: 0 0 calc(100vw - 100vh - 30px); // Scrollbar (?) fix on Windows
     height: 100vh;
   }
 
   .quadrant {
-    height: 33.3333vh;
     width: 100%;
+    height: 33vh;
   }
 }
