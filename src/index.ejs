@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <% for(var i=0; i < htmlWebpackPlugin.files.css; i++) { %>
-        <link href="<%= htmlWebpackPlugin.files.css[i] %>" rel="stylesheet">
-        <% } %>
+      <link href="<%= htmlWebpackPlugin.files.css[i] %>" rel="stylesheet">
+    <% } %>
 </head>
 
 <body>
@@ -49,17 +49,17 @@
           <svg class="line-chart"></svg>
         </div>
         <div class="quadrant">
-          <svg class="bar-chart"></svg>
+          <svg class="bar-chart" id="sg-gbjt"></svg>
         </div>
         <div class="quadrant">
-          <svg class="bar-chart"></svg>
+          <svg class="bar-chart" id="sg-pft"></svg>
         </div>
       </div>
     </div>
 
     <% for(var i=0; i < htmlWebpackPlugin.files.chunks; i++) { %>
       <script src="<%= htmlWebpackPlugin.files.chunks[i].entry %>" defer></script>
-      <% } %>
+    <% } %>
 </body>
 
 </html>

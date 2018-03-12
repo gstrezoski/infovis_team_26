@@ -36,25 +36,19 @@ export default class BarChart {
       margin = { top: 20, right: 20, bottom: 30, left: 40 },
       box = svg.node().getBoundingClientRect();
 
-    let width, height;
-    // Maybe the DOM hasn't loaded correctly. Then the graph will be the wrong size
-    if (box.height === 150 && box.width === 300) {
-      width = (window.innerWidth / 2) - box['left'] - margin.left - margin.right;
-      height = (window.innerHeight / 2) - box['top'] - margin.top - margin.bottom;
-    } else {
-      width = box['width'] - margin.left - margin.right;
-      height = box['height'] - margin.top - margin.bottom;
-    }
+    // console.log(`svg#${this.id}`);
 
     const x = d3.scaleTime().rangeRound([0, width])
         .padding(0.1),
-      y = d3.scaleLinear()
-        .rangeRound([height, 0]);
+      y = d3.scaleLinear().rangeRound([height, 0]);
 
-    svg.selectAll('g').remove();
+    let data = [1, 2, 3, 4, 3, 2, 3];
 
-    const g = svg.append('g')
-      .attr('transform', `translate(${margin.left}, ${margin.top})`);
+    let g = svg.append('g')
+      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+    x.domain([1, 2, 3, 4, 5, 6, 7]);
+    y.domain([0, d3.max(data, function(d) { return d; })]);
 
     x.domain(this.data.map((d) => d.month));
     y.domain([0, d3.max(data, (d) => d.perc_women)]);
