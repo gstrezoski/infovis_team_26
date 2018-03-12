@@ -9,6 +9,8 @@ import setup_helper from '_scripts/helper.js';
 import line_chart_location_data from '_data/line_chart_location.csv';
 import core_2015_01 from '_data/core_2015-01.csv';
 
+import '_scripts/helper.js';
+
 // Default variables
 const defaultVars = {
   groupBy: 'functional_area',
